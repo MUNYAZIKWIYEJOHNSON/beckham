@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  background-image: url("https://images.unsplash.com/photo-1509440159596-0249088772ff");
+}
+
+.checkout-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: chocolate;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.checkout-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.checkout-form input,
+.checkout-form select,
+.checkout-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #0c0c0c;
+  border-radius: 5px;
+}
+
+.checkout-form textarea {
+  resize: none;
+  height: 80px;
+}
+
+.terms {
+  font-size: 14px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.checkout-form button {
+  width: 100%;
+  padding: 12px;
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.checkout-form button:hover {
+  background: #e65c00;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="checkout-container">
+  <h2>Checkout</h2>
+
+  <form class="checkout-form" >
+    
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <input type="text" placeholder="Delivery Address" required>
+    <select required>
+      <option value="">Select Payment Method</option>
+      <option>Credit / Debit Card</option>
+      <option>Mobile Money</option>
+      <option>Cash on Delivery</option>
+    </select>
+    <textarea placeholder="Order Notes (optional)"></textarea>
+    <label class="terms">
+      <input type="checkbox" required> I agree to the terms & conditions
+    </label>
+
+    <button type="submit">Place Order</button>
+  </form>
+</div>
+<script>
+    
+document.getElementById("checkoutForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // Guhagarika refresh
+
+  // Fata values ukoresheje ID
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const payment = document.getElementById("payment").value;
+  const terms = document.getElementById("terms").checked;
+
+  // Validation
+  if (!name || !email || !phone || !address || !payment) {
+    alert("Please fill in all required fields!");
+    return;
+  }
+
+  if (!terms) {
+    alert("You must agree to the terms and conditions!");
+    return;
+  }
+
+  // Success message
+  alert(
+    "Order Placed Successfully!\n\n" +
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n" +
+    "Phone: " + phone + "\n" +
+    "Address: " + address + "\n" +
+    "Payment Method: " + payment
+  );
+
+  // Reset form
+  this.reset();
+});
+</script>
+
+</script>
+
+</script>
+</body>
+</html>

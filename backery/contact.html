@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        
+        :root {
+            --primary-color: chocolate; 
+            --primary-hover: #1d4ed8;
+            --secondary-color: #1e293b; 
+            --background-color: #f8fafc;
+            --white: #ffffff;
+            --text-color: #334155;
+            --light-text: #64748b;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --error-color: #ef4444;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+       
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 1.5rem;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        
+        .container {
+            max-width: 1200px;
+            margin: -3rem auto 3rem;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .icon-box {
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .icon-box svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .info-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            color: var(--secondary-color);
+        }
+
+        .info-content p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        .form-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-header h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .form-header p {
+            color: var(--light-text);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        input, 
+        select, 
+        textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background-color: #fff;
+        }
+
+        input:focus, 
+        select:focus, 
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        .input-error {
+            border-color: var(--error-color) !important;
+        }
+        
+        .input-success {
+            border-color: var(--success-color) !important;
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.5s, bottom 0.5s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+
+        .toast.success {
+            background-color: var(--success-color);
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: var(--secondary-color);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+       
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin-top: -2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                </svg>
+                Sweet Bakey & Alimantation
+            </a>
+            <nav class="nav-links">
+                <a href="v.html">Home</a>
+                <a href="service.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="#" style="color: var(--primary-color);">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Get in Touch</h1>
+        <p>Have a question or want to work together? Our team is ready to assist you. Fill out the form below.</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Company Info -->
+        <aside class="info-card">
+            <div class="info-item">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="info-content">
+                    <h3>Our Address</h3>
+                    <p>123 Business Ave<br>New York, NY 10001</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div class="info-content">
+                    <h3>Email</h3>
+                    <p>info@brandname.com<br>support@brandname.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div class="info-content">
+                    <h3>Phone</h3>
+                    <p>+1 (555) 123-4567<br>Mon-Fri, 9am - 5pm</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contact Form -->
+        <section class="form-card">
+            <div class="form-header">
+                <h2>Send us a Message</h2>
+                <p>We usually respond within 24 hours.</p>
+            </div>
+
+            <form id="contactForm" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstname">Your Name</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="John Doe" required>
+                        <small class="error-message">Name is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        <small class="error-message">Invalid email address.</small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone (Optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555)...">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>Select a topic...</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="support">Technical Support</option>
+                            <option value="sales">Sales & Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <small class="error-message">Please select a subject.</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="How can we help you today?" required></textarea>
+                    <small class="error-message">Message cannot be empty.</small>
+                </div>
+
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 BrandName Corp. All rights reserved.</p>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Message sent successfully!</div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contactForm');
+            const toast = document.getElementById('toast');
+            
+            // Handle Form Submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                
+                // Validation Logic
+                const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+                
+                inputs.forEach(input => {
+                    const errorMessage = input.nextElementSibling;
+                    
+                    if (!input.value.trim()) {
+                        // Show error if empty
+                        input.classList.add('input-error');
+                        input.classList.remove('input-success');
+                        if(errorMessage) errorMessage.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        // Check Email Validation
+                        if (input.type === 'email') {
+                            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            if (!emailPattern.test(input.value)) {
+                                input.classList.add('input-error');
+                                input.classList.remove('input-success');
+                                if(errorMessage) {
+                                    errorMessage.innerText = "Invalid email address.";
+                                    errorMessage.style.display = 'block';
+                                }
+                                isValid = false;
+                            } else {
+                                input.classList.remove('input-error');
+                                input.classList.add('input-success');
+                                if(errorMessage) errorMessage.style.display = 'none';
+                            }
+                        } else {
+                            // Valid
+                            input.classList.remove('input-error');
+                            input.classList.add('input-success');
+                            if(errorMessage) errorMessage.style.display = 'none';
+                        }
+                    }
+                });
+
+                // On Success
+                if (isValid) {
+                    // Simulate sending data...
+                    const submitBtn = form.querySelector('.btn-submit');
+                    const originalText = submitBtn.innerText;
+                    
+                    submitBtn.innerText = "Sending...";
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = "0.7";
+
+                    setTimeout(() => {
+                        // Reset Button
+                        submitBtn.innerText = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = "1";
+
+                        // Show Toast Message
+                        showToast("Thank you! Your message has been sent.", "success");
+                        
+                        // Reset Form
+                        form.reset();
+                        inputs.forEach(input => input.classList.remove('input-success'));
+                        
+                    }, 1500); // Wait 1.5 seconds
+                }
+            });
+
+            // Clear Error State on Input
+            const inputs = form.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (this.classList.contains('input-error')) {
+                        this.classList.remove('input-error');
+                        const errorMessage = this.nextElementSibling;
+                        if(errorMessage && errorMessage.classList.contains('error-message')) {
+                            errorMessage.style.display = 'none';
+                        }
+                    }
+                });
+            });
+
+            // Function to show Toast
+            function showToast(message, type) {
+                toast.innerText = message;
+                toast.className = "toast show"; // Reset class
+                if (type === "success") {
+                    toast.classList.add("success");
+                }
+                
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    toast.className = toast.className.replace("show", "");
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

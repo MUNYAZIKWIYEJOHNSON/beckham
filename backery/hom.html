@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bakery Home</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #fff8f0;
+    }
+
+    header {
+      background: #8b4513;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .hero {
+      height: 100vh;                 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;       
+      align-items: center;          
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+   
+    .btn {
+      background: #c97c5d;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #a86348;
+    }
+    .video-bg {
+            position: fixed; 
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; 
+            object-fit: cover; 
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); 
+            z-index: -1;
+        }
+  </style>
+</head>
+
+<body>
+   <video class="video-bg" autoplay muted loop playsinline>
+       
+        <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4">
+        Ntago browser yawe ikora video.
+    </video>
+
+    
+    <div class="overlay"></div>
+
+  <header>
+    <h1>Sweet Bakery</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <h2>Welcome to Sweet Bakery</h2>
+    <p>Fresh bread, cakes and pastries every day</p>
+    <button onclick="welcome()" class="btn">Order Now</button>
+  </section>
+
+  <script>
+    function welcome() {
+      alert("Welcome to Sweet Bakery! Thank you for choosing us.");
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Crust Bakery - Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fffaf6;
+    color: #333;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #c97c5d;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #c97c5d;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1549931319-a545dcf3bc73") center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.btn {
+    background: #c97c5d;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: #a86348;
+}
+
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.3rem;
+    color: #c97c5d;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-8px);
+}
+
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-content {
+    padding: 20px;
+}
+
+.price {
+    color: #c97c5d;
+    font-weight: bold;
+}
+
+.buy-section {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.qty {
+    width: 60px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.buy-btn {
+    flex: 1;
+    background: #c97c5d;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.buy-btn:hover {
+    background: #a86348;
+}
+
+footer {
+    background: #2b2b2b;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+}
+
+footer i {
+    color: #c97c5d;
+    margin: 0 10px;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+<div class="logo">Golden Crust</div>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="menu.html">Menu</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div>
+<h1>Freshly Baked Happiness</h1>
+<p>Handcrafted breads, pastries & cakes baked daily with love.</p>
+<a href="menu.html" class="btn">View Menu</a>
+</div>
+</section>
+
+<section id="best-sellers">
+<div class="section-title"><h2>Best Sellers</h2></div>
+<div class="products">
+<div class="product">
+<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff">
+<div class="product-content">
+<h3>Artisan Bread</h3>
+<p>Crispy crust, soft inside</p>
+<span class="price">$5.99</span>
+<div class="buy-section">
+<input type="number" value="1" min="1" class="qty">
+<button class="buy-btn" onclick="buyProduct('Artisan Bread',5.99,this)">Buy Now</button>
+</div>
+</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+<div class="product-content">
+<h3>Chocolate Croissant</h3>
+<p>Flaky & buttery delight</p>
+<span class="price">$3.49</span>
+<div class="buy-section">
+<input type="number" value="1" min="1" class="qty">
+<button class="buy-btn" onclick="buyProduct('Chocolate Croissant',3.49,this)">Buy Now</button>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Golden Crust Bakery</p>
+<div>
+<i class="fab fa-facebook"></i>
+<i class="fab fa-instagram"></i>
+<i class="fab fa-twitter"></i>
+</div>
+</footer>
+
+<script>
+function buyProduct(name, price, btn){
+  const qty = btn.previousElementSibling.value;
+  const total = (price * qty).toFixed(2);
+  alert(`🛒 Order Added!\n\nProduct: ${name}\nQuantity: ${qty}\nTotal: $${total}`);
+}
+</script>
+</body>
+</html>

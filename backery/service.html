@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donuts Delight - Official Shop</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background-color: #fcf8f6; color: #444; }
+
+    header { 
+      background: #fff; padding: 1rem 5%; display: flex; justify-content: space-between; 
+      align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; 
+    }
+    header h1 { color: #c97c5d; font-size: 1.6rem; }
+    nav a { text-decoration: none; color: #666; margin-left: 20px; font-weight: 500; }
+
+    #products { 
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 25px; padding: 40px 5%; max-width: 1400px; margin: 0 auto; 
+    }
+
+    .card { 
+      background: #fff; border-radius: 15px; overflow: hidden; 
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; 
+      border: 1px solid #f0f0f0; display: flex; flex-direction: column;
+    }
+    .card:hover { transform: translateY(-8px); }
+    .card img { width: 100%; height: 250px; object-fit: cover; }
+    
+    .card-content { padding: 15px; flex-grow: 1; }
+    .card-content h3 { margin: 10px 0; font-size: 1.2rem; }
+    .card-content p { color: #c97c5d; font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; }
+
+    .buy-section { display: flex; flex-direction: column; gap: 10px; }
+    .qty-wrapper { display: flex; justify-content: center; align-items: center; gap: 8px; }
+    .qty { width: 55px; padding: 6px; border-radius: 8px; border: 1px solid #ddd; text-align: center; }
+    .buy-btn { background: #c97c5d; color: #fff; border: none; padding: 10px; border-radius: 10px; cursor: pointer; font-weight: 600; }
+
+    .modal { 
+      display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; 
+      background: rgba(0,0,0,0.6); align-items: center; justify-content: center; padding: 20px; 
+    }
+    .modal-content { background: #fff; padding: 25px; border-radius: 20px; width: 100%; max-width: 400px; }
+    .modal-content h2 { color: #c97c5d; margin-bottom: 15px; }
+    .modal-content input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #eee; border-radius: 10px; background: #f9f9f9; }
+    .confirm-btn { background: #28a745; color: #fff; width: 100%; border: none; padding: 12px; border-radius: 10px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+    .close-btn { background: #eee; color: #555; width: 100%; border: none; padding: 10px; border-radius: 10px; cursor: pointer; margin-top: 10px; }
+    #summaryText { background: #fff4f0; padding: 12px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #c97c5d; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Donuts Delight</h1>
+    <nav>
+      <a href="v.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section id="products">
+    <div class="card">
+      <img src="donat (1).jpg" alt="Bread Baking">
+      <div class="card-content">
+        <h3>Bread Baking</h3>
+        <p>Price: $5</p>
+        <div class="buy-section">
+          <div class="qty-wrapper"><span>Qty:</span><input type="number" class="qty" value="1" min="1"></div>
+          <button class="buy-btn" onclick="openForm('Bread Baking', 5, this)">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const productNames = [
+        {id: 5, name: "Donat 2", price: 15}, {id: 6, name: "Donat 3", price: 50},
+        {id: 7, name: "Donat 4", price: 10}, {id: 8, name: "Donat 5", price: 5},
+        {id: 9, name: "Donat 6", price: 15}, {id: 10, name: "Donat 7", price: 50},
+        {id: 11, name: "Donat 8", price: 10}, {id: 12, name: "Donat 9", price: 5},
+        {id: 13, name: "Donat 10", price: 15}, {id: 14, name: "Donat 11", price: 50},
+        {id: 15, name: "Donat 12", price: 10}, {id: 16, name: "Donat 13", price: 2},
+        {id: 17, name: "Donat 14", price: 2}, {id: 18, name: "Donat 15", price: 2},
+        {id: 19, name: "Donat 16", price: 2}, {id: 20, name: "Donat 17", price: 5},
+        {id: 21, name: "Donat 18", price: 15}, {id: 22, name: "Donat 19", price: 50},
+        {id: 23, name: "Donat 20", price: 10}, {id: 24, name: "Donat 21", price: 5},
+        {id: 25, name: "Donat 22", price: 15}, {id: 26, name: "Donat 23", price: 50},
+        {id: 27, name: "Donat 24", price: 10}, {id: 28, name: "Donat 25", price: 5},
+        {id: 29, name: "Donat 26", price: 15}, {id: 30, name: "Donat 27", price: 50},
+        {id: 31, name: "Donat 28", price: 10}, {id: 32, name: "Donat 29", price: 5},
+        {id: 33, name: "Donat 30", price: 15}, {id: 34, name: "Donat 31", price: 50},
+        {id: 35, name: "Donat 32", price: 10}, {id: 36, name: "Donat 33", price: 5},
+        {id: 37, name: "Donat 34", price: 15}, {id: 38, name: "Donat 35", price: 50},
+        {id: 39, name: "Donat 36", price: 10}, {id: 40, name: "Donat 37", price: 5},
+        {id: 41, name: "Donat 38", price: 15}, {id: 42, name: "Donat 39", price: 50},
+        {id: 43, name: "Donat 40", price: 10}
+      ];
+
+      const container = document.getElementById('products');
+      productNames.forEach(p => {
+        container.innerHTML += `
+          <div class="card">
+            <img src="donat (${p.id}).jpg" alt="${p.name}">
+            <div class="card-content">
+              <h3>${p.name}</h3>
+              <p>Price: $${p.price}</p>
+              <div class="buy-section">
+                <div class="qty-wrapper"><span>Qty:</span><input type="number" class="qty" value="1" min="1"></div>
+                <button class="buy-btn" onclick="openForm('${p.name}', ${p.price}, this)">Buy Now</button>
+              </div>
+            </div>
+          </div>`;
+      });
+    </script>
+  </section>
+
+  <div id="orderModal" class="modal">
+    <div class="modal-content">
+      <h2>Complete Order</h2>
+      <div id="summaryText"></div>
+      <form action="https://formspree.io/f/xgozpwzj" method="POST">
+        <input type="hidden" name="Item" id="formItem">
+        <input type="hidden" name="Qty" id="formQty">
+        <input type="hidden" name="Total" id="formTotal">
+        <input type="text" name="Name" placeholder="Izina ryawe" required>
+        <input type="tel" name="Phone" placeholder="Telefone" required>
+        <input type="text" name="Address" placeholder="Aderese yo kuyigezaho" required>
+        <button type="submit" class="confirm-btn">Send Order</button>
+        <button type="button" class="close-btn" onclick="closeForm()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openForm(name, price, btn) {
+      const qty = btn.parentElement.querySelector('.qty').value;
+      const total = (price * qty).toFixed(2);
+      document.getElementById('summaryText').innerHTML = `<b>Item:</b> ${name} | <b>Qty:</b> ${qty} | <b>Total:</b> $${total}`;
+      document.getElementById('formItem').value = name;
+      document.getElementById('formQty').value = qty;
+      document.getElementById('formTotal').value = "$" + total;
+      document.getElementById('orderModal').style.display = 'flex';
+    }
+    function closeForm() { document.getElementById('orderModal').style.display = 'none'; }
+  </script>
+</body>
+</html>
